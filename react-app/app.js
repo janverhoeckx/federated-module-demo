@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client';
 import {stateService} from "@jan.verhoeckx/shared-library";
+import './app.css';
 
 class App extends React.Component {
 
