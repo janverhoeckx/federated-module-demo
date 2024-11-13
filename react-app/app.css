@@ -1,5 +1,120 @@
-h1 {
-    color: #c2185b;
-    font-size: 24px;
+.appointment-page {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.header {
+    background-color: #f0f0f0;
+    padding: 16px;
+}
+
+.header h1 {
     margin: 0;
+    font-family: Centrale Sans, Arial;
+}
+
+.alert {
+    background-color: #e0e0e0;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+/* Horizontal line connecting the steps */
+.line {
+    position: absolute;
+    top: 50%;
+    left: 8%;  /* Start the line a little inside the container */
+    right: 8%; /* End the line a little before the container's end */
+    transform: translateY(-50%);
+    height: 2px;
+    background-color: #ddd;
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    color: #777;
+}
+
+.step.active {
+    color: #000;
+    font-weight: bold;
+}
+
+.step i {
+    font-size: 24px;
+    background-color: #e0e0e0;
+    padding: 8px;
+    border-radius: 50%;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.step.active i {
+    background-color: #5ab9ea; /* Color for active step icon */
+    color: white;
+}
+
+.appointment-type-selector {
+    padding: 16px;
+}
+
+.appointment-category h3 {
+    margin-top: 16px;
+}
+
+.appointment-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    margin: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-option:hover {
+    background-color: #f1f1f1;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #5ab9ea; /* Color for icon background */
+    color: white;
+    font-size: 20px;
+}
+
+.appointment-details {
+    flex-grow: 1;
+    margin-left: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.arrow-icon {
+    font-size: 18px;
+    color: #888;
 }
