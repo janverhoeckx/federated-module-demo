@@ -1,0 +1,39 @@
+/* src/app/app.component.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #333;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+nav a.active {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.4);
+}
