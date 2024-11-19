@@ -12,11 +12,13 @@ class App extends React.Component {
         const state = stateService
         console.log('data: ', state.getData());
         return ([
-            <Header/>,
-            <StepIndicator/>,
-            <AppointmentTypeSelector/>,
-            <p>React Version: {reactVersion} </p>,
+            <div className="react-app-content">
+            <Header/>
+            <StepIndicator/>
+            <AppointmentTypeSelector/>
+            <p>React Version: {reactVersion} </p>
             <p>Logged in user: {state.getData()}</p>
+            </div>
         ])
     }
 }

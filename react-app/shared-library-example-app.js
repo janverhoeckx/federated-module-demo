@@ -10,8 +10,10 @@ class SharedLibraryExample extends React.Component {
         const state = stateService
 
         return ([
-            <p>Shared state from shell:</p>,
-            <p className="shared-state">{state.getData()}</p>
+            <div>
+                <p>Shared state from shell:</p>
+                <p className="shared-state">{state.getData()}</p>
+            </div>
         ])
     }
 }

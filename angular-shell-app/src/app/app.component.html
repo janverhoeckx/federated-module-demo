@@ -1,9 +1,14 @@
-<nav>
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-  <a routerLink="/react" routerLinkActive="active">React</a>
-  <a routerLink="/react-shared-state-library-example" routerLinkActive="active">React shared state library example</a>
-</nav>
+<div class="sidebar">
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/react" routerLinkActive="active">React</a>
+    <a routerLink="/react-shared-state-library-example" routerLinkActive="active">React shared state library example</a>
+    <a routerLink="/react-url-params-example" [queryParams]="{ param1: 'hello from shell', param2: 'value2' }"
+       routerLinkActive="active">React URL params example</a>
+    <a routerLink="/angular-remote" routerLinkActive="active">Angular remote</a>
+  </nav>
+</div>
 
-<div class="app">
+<div class="app-content">
   <router-outlet/>
 </div>

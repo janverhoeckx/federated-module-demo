@@ -1,45 +1,33 @@
-/* src/app/app.component.css */
 body {
+  display: flex;
   margin: 0;
   font-family: Arial, sans-serif;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.sidebar {
+  width: 250px;
+  height: 100vh;
   background-color: #333;
-  padding: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding-top: 20px;
+  position: fixed;
 }
 
-nav a {
-  color: #fff;
+.sidebar nav a {
+  display: block;
+  color: white;
+  padding: 10px 15px;
   text-decoration: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
 }
 
-nav a:hover {
-  background-color: #007bff;
-  color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.4);
-  transform: translateY(-2px);
+.sidebar nav a.active {
+  background-color: #575757;
 }
 
-nav a.active {
-  background-color: #007bff;
-  color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.4);
+.sidebar nav a:hover {
+  background-color: #575757;
 }
 
-.app {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
+.app-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
 }
