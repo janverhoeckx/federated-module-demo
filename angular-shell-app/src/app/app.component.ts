@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {stateService} from '@jan.verhoeckx/shared-library';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,8 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 })
 export class AppComponent {
   title = 'angular-shell-app';
+
+  constructor() {
+    stateService.setData("Hello from shell!");
+  }
 }

@@ -17,5 +17,16 @@ export const routes: Routes = [
       exposedModule: './web-components',
       elementName: 'react-element'
     } as WebComponentWrapperOptions
+  },
+  {
+    path: 'react-shared-state-library-example',
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'http://localhost:3000/remoteEntry.js',
+      remoteName: 'react',
+      exposedModule: './shared-library-example-app',
+      elementName: 'shared-library-example-react-element'
+    } as WebComponentWrapperOptions
   }
 ];

@@ -1,7 +1,9 @@
 <nav>
-  <a routerLink="/" routerLinkActive="active">Home</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
   <a routerLink="/react" routerLinkActive="active">React</a>
+  <a routerLink="/react-shared-state-library-example" routerLinkActive="active">React shared state library example</a>
 </nav>
 
-
-<router-outlet />
+<div class="app">
+  <router-outlet/>
+</div>

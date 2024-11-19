@@ -39,6 +39,7 @@ module.exports = options => {
                 filename: "remoteEntry.js", // <-- Meta Data
                 exposes: {
                     './web-components': './app.js',
+                    './shared-library-example-app': './shared-library-example-app.js'
                 },
                 shared: {
                     '@jan.verhoeckx/shared-library': {
