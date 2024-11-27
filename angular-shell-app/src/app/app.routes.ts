@@ -60,16 +60,5 @@ export const routes: Routes = [
         exposedModule: './routes'
       })
         .then(m => m.routes)
-  },
-  {
-    path: 'react-url-params-example',
-    component: WebComponentWrapper,
-    data: {
-      type: 'script',
-      remoteEntry: 'http://localhost:4202/remoteEntry.js',
-      remoteName: 'angular',
-      exposedModule: './routes',
-      elementName: 'angular-remote-different-version-app-element'
-    } as WebComponentWrapperOptions
-  },
+  }
 ];
