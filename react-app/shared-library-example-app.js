@@ -10,8 +10,8 @@ class SharedLibraryExample extends React.Component {
         const state = stateService
 
         return ([
-            <div>
-                <p>Shared state from shell:</p>
+            <div className="container">
+                <h2>Shared state from shell:</h2>
                 <p className="shared-state">{state.getData()}</p>
             </div>
         ])
@@ -20,7 +20,14 @@ class SharedLibraryExample extends React.Component {
 
 class Element extends HTMLElement {
     connectedCallback() {
-        const root = ReactDOM.createRoot(this);
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', 'http://localhost:3000/shared-library-example-app.css');
+
+        shadowRoot.appendChild(link);
+
+        const root = ReactDOM.createRoot(shadowRoot);
         root.render(<SharedLibraryExample/>);
     }
 }

@@ -8,8 +8,8 @@ class UrlParametersExampleApp extends React.Component {
 
         console.log(query);
         return ([
-            <div>
-                <p>URL params:</p>
+            <div className="container">
+                <h2>URL params:</h2>
                 <p className="shared-state">{JSON.stringify(Object.fromEntries(query))}</p>
             </div>
         ])
@@ -18,7 +18,14 @@ class UrlParametersExampleApp extends React.Component {
 
 class Element extends HTMLElement {
     connectedCallback() {
-        const root = ReactDOM.createRoot(this);
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', 'http://localhost:3000/url-parameters-example-app.css');
+
+        shadowRoot.appendChild(link);
+
+        const root = ReactDOM.createRoot(shadowRoot);
         root.render(<UrlParametersExampleApp/>);
     }
 }

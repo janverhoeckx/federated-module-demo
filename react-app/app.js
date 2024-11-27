@@ -1,90 +1,71 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client';
-import {stateService} from "@jan.verhoeckx/shared-library";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './app.css';
 
-class App extends React.Component {
+const App = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        dob: ''
+    });
 
-    render() {
-        const reactVersion = require('./package.json').dependencies['react'];
-        // Usage
-        const state = stateService
-        console.log('data: ', state.getData());
-        return ([
-            <div className="react-app-content">
-            <Header/>
-            <StepIndicator/>
-            <AppointmentTypeSelector/>
-            <p>React Version: {reactVersion} </p>
-            <p>Logged in user: {state.getData()}</p>
-            </div>
-        ])
-    }
-}
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
 
-const Header = () => (
-    <div className="header">
-        <h1>Een nieuwe afspraak maken</h1>
-        <div className="alert">
-            <strong>Bel 112 bij levensbedreigende situaties.</strong>
-            <p>Is het een spoedgeval of twijfelt u over de ernst van de klachten? Neem dan telefonisch contact op met uw
-                zorgverlener.</p>
-        </div>
-    </div>
-);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form Data Submitted: ', formData);
+    };
 
-const StepIndicator = () => (
-    <div className="step-indicator">
-        <div className="line"></div>
-        <div className="step active">
-            <i className="fas fa-user-md"></i>
-            <span>Type</span>
+    return (
+        <div className="form-container">
+            <h1>Inschrijfformulier Huisartsenpraktijk</h1>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="name">Naam:</label>
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="phone">Telefoonnummer:</label>
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="address">Adres:</label>
+                    <input type="text" id="address" name="address" value={formData.address} onChange={handleChange} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="dob">Geboortedatum:</label>
+                    <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleChange} required />
+                </div>
+                <button type="submit">Inschrijven</button>
+            </form>
         </div>
-        <div className="step">
-            <i className="fas fa-question-circle"></i>
-            <span>Reden</span>
-        </div>
-        <div className="step">
-            <i className="fas fa-calendar-alt"></i>
-            <span>Datum</span>
-        </div>
-        <div className="step">
-            <i className="fas fa-check-circle"></i>
-            <span>Check</span>
-        </div>
-    </div>
-);
-
-const AppointmentTypeSelector = () => (
-    <div className="appointment-type-selector">
-        <h2>Kies het type afspraak</h2>
-
-        <div className="appointment-category">
-            <h3>Doktersafspraak</h3>
-            <AppointmentOption title="Digitaal Spreekuur"/>
-            <AppointmentOption title="Consult op de praktijk"/>
-        </div>
-
-        <div className="appointment-category">
-            <h3>Afspraak met een praktijkondersteuner</h3>
-            <AppointmentOption title="Oren uitspuiten"/>
-        </div>
-    </div>
-);
-
-const AppointmentOption = ({title}) => (
-    <div className="appointment-option">
-        <div className="appointment-details">{title}</div>
-        <div className="arrow-icon">
-            <i className="fas fa-chevron-right"></i>
-        </div>
-    </div>
-);
+    );
+};
 
 class Mfe4Element extends HTMLElement {
     connectedCallback() {
-        const root = ReactDOM.createRoot(this);
+        const shadowRoot = this.attachShadow({mode: 'open'});
+
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', 'http://localhost:3000/app.css');
+
+        shadowRoot.appendChild(link);
+
+        const root = ReactDOM.createRoot(shadowRoot);
         root.render(<App/>);
     }
 }

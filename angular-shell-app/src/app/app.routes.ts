@@ -42,6 +42,17 @@ export const routes: Routes = [
     } as WebComponentWrapperOptions
   },
   {
+    path: 'react-router-example',
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'http://localhost:3000/remoteEntry.js',
+      remoteName: 'react',
+      exposedModule: './react-router-example-app',
+      elementName: 'react-router-example-react-element'
+    } as WebComponentWrapperOptions
+  },
+  {
     path: 'angular-remote',
     loadChildren: () =>
       loadRemoteModule({
@@ -53,12 +64,13 @@ export const routes: Routes = [
   },
   {
     path: 'angular-remote-different-version',
-    loadChildren: () =>
-      loadRemoteModule({
-        type: 'module',
-        remoteEntry: 'http://localhost:4202/remoteEntry.js',
-        exposedModule: './routes'
-      })
-        .then(m => m.routes)
-  }
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'http://localhost:2402/remoteEntry.js',
+      remoteName: 'angular-remote-different-version-app',
+      exposedModule: './Component',
+      elementName: 'app.module.ts'
+    } as WebComponentWrapperOptions
+  },
 ];

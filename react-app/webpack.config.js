@@ -40,7 +40,8 @@ module.exports = options => {
                 exposes: {
                     './web-components': './app.js',
                     './shared-library-example-app': './shared-library-example-app.js',
-                    './url-parameters-example-app': './url-parameters-example-app.js'
+                    './url-parameters-example-app': './url-parameters-example-app.js',
+                    './react-router-example-app': './react-router-example-app.js'
                 },
                 shared: {
                     '@jan.verhoeckx/shared-library': {
@@ -52,6 +53,9 @@ module.exports = options => {
                 patterns: [
                     {
                         from: './*.html'
+                    },
+                    {
+                        from: './*.css'
                     }
                 ]
             })
