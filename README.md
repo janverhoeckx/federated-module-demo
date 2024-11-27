@@ -15,9 +15,10 @@ This project uses the following frameworks and libraries:
 
 
 ## How to run
-1. Run `npm install` in the application directories (angular-shell-app, react-app, shared-library)
-2. Run `npm start` in the application directories
-3. The applications are now running on `http://localhost:4200/` (Angular shell) and `http://localhost:3000/` (React module)
+1. Run `./install.sh` in the root directory to install the dependencies of all projects
+2. Run `./start.sh` in the root directory to start the applications
+3. The applications are now running on `http://localhost:4200/` (Angular shell) and `http://localhost:3000/` 
+(React module),`http://localhost:2401/` (Angular remote app), `http://localhost:2402/` (Angular remote different version app)
 
 ## Concepts
 This demo project includes the following concepts:
