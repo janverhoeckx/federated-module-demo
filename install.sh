@@ -12,4 +12,7 @@ PID3=$!
 npm install --prefix ./react-app &
 PID4=$!
 
-wait $PID1 $PID2 $PID3 $PID4
+npm install --prefix ./react-app-different-version &
+PID5=$!
+
+wait $PID1 $PID2 $PID3 $PID4 $PID5

@@ -53,6 +53,17 @@ export const routes: Routes = [
     } as WebComponentWrapperOptions
   },
   {
+    path: 'react-different-version-example',
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'http://localhost:3001/remoteEntry.js',
+      remoteName: 'react_different_version',
+      exposedModule: './react-different-version',
+      elementName: 'react-different-version-element'
+    } as WebComponentWrapperOptions
+  },
+  {
     path: 'angular-remote',
     loadChildren: () =>
       loadRemoteModule({

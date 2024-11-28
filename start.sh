@@ -12,11 +12,14 @@ PID3=$!
 npm run start --prefix ./react-app &
 PID4=$!
 
+npm run start --prefix ./react-app-different-version &
+PID5=$!
+
 cleanup() {
   echo "Terminating web servers..."
-  kill $PID1 $PID2 $PID3 $PID4
+  kill $PID1 $PID2 $PID3 $PID4 $PID5
 }
 
 trap cleanup EXIT
 
-wait $PID1 $PID2 $PID3 $PID4
+wait $PID1 $PID2 $PID3 $PID4 $PID5
