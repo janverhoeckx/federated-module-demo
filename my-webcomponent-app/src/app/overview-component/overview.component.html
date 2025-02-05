@@ -1,0 +1,6 @@
+<h2>Select a Medical Complaint Area:</h2>
+<ul>
+  <li *ngFor="let area of complaintAreas" (click)="onSelect(area)">
+    {{ area }}
+  </li>
+</ul>
